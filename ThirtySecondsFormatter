@@ -1,0 +1,15 @@
+# TD Take Home Interview Question
+# This code will be used to convert a given double value into the 32nds format
+# used by US government securities.
+# Author: Shkurte Marevci
+# Date: March 7th, 2020
+
+def ThirtySecondsFormatter(input):
+    minutes = int(input) #convert the given double
+    seconds = str(input-int(input))[1:] # get the seconds from the double
+    secondsFormatted = int(float("0" + seconds) * 32)
+    if minutes//10 == 0: # will check if the digits in minutes are more than 2 so we can add a 0 to fix the formatting
+        minutes = '0' + str(minutes)
+    if secondsFormatted//10 == 0: #same as minutes, adds a 0 when the digits are less than 2 to fix formatting
+        secondsFormatted = '0' + str(secondsFormatted)
+    return str(minutes) + "-" + str(secondsFormatted) # return the double as a string with the correct 32nds format
